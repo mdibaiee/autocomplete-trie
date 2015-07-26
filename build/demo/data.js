@@ -3,9 +3,9 @@
 var data = new Trie();
 
 var json = {
-  "color": ["red", "rebecca", "blue", "cyan", "pink", "purple", "teal", "black", "white", "orange", "yellow", "green"],
+  "color": ["Red", "Rebecca", "Blue", "Cyan", "Pink", "Purple", "Teal", "Black", "White", "Orange", "Yellow", "Green"],
   "name": ["Jack", "James", "Alex", "Adam", "Mahdi", "Josh", "Scott", "Pat", "Vincent", "Daniel", "Patrick", "Tim"],
-  "app": ["Atom", "Sublime", "Firefox", "Chrome", "Safari", "Mail", "Blender", "Sketch", "Slack", "Finder", "Nightly", "Aurora", "f.lux", "LookUp", "WunderList", "Instagram", "Toggl"]
+  "app": ["Atom", "Sublime", "Firefox", "Chrome", "Safari", "Mail", "Blender", "Sketch", "Slack", "Finder", "Nightly", "Aurora", "f.lux", "LookUp", "WunderList", "Instagram", "Toggl", "Mailbox"]
 };
 
 for (var category in json) {

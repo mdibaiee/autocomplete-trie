@@ -37,18 +37,16 @@ class Trie {
     return parent;
   }
 
-  all(search) {
-    let node = this.find(search);
+  findWords(value, parent = this.root) {
+    let top = this.find(value, parent);
 
-    if (!node) return null;
+    let words = [];
 
-    let all = [node];
-
-    node.children.forEach(function addToAll(child) {
-      all.push(child);
-      child.children.forEach(addToAll);
+    top.children.forEach(function getWords(node) {
+      if (node.category) words.push(node);
+      node.children.forEach(getWords);
     });
 
-    return all;
+    return words;
   }
 }

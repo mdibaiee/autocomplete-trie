@@ -70,20 +70,20 @@ var Trie = (function () {
       return parent;
     }
   }, {
-    key: 'all',
-    value: function all(search) {
-      var node = this.find(search);
+    key: 'findWords',
+    value: function findWords(value) {
+      var parent = arguments.length <= 1 || arguments[1] === undefined ? this.root : arguments[1];
 
-      if (!node) return null;
+      var top = this.find(value, parent);
 
-      var all = [node];
+      var words = [];
 
-      node.children.forEach(function addToAll(child) {
-        all.push(child);
-        child.children.forEach(addToAll);
+      top.children.forEach(function getWords(node) {
+        if (node.category) words.push(node);
+        node.children.forEach(getWords);
       });
 
-      return all;
+      return words;
     }
   }]);
 
