@@ -1,15 +1,41 @@
-'use strict';
+"use strict";
 
-window.data = new Trie();
+var data = new Trie();
 
-data.add('colors');
-data.add('coffee');
-// data.add('codecs');
+var json = {
+  "color": ["red", "rebecca", "blue", "cyan", "pink", "purple", "teal", "black", "white", "orange", "yellow", "green"],
+  "name": ["Jack", "James", "Alex", "Adam", "Mahdi", "Josh", "Scott", "Pat", "Vincent", "Daniel", "Patrick", "Tim"],
+  "app": ["Atom", "Sublime", "Firefox", "Chrome", "Safari", "Mail", "Blender", "Sketch", "Slack", "Finder", "Nightly", "Aurora", "f.lux", "LookUp", "WunderList", "Instagram", "Toggl"]
+};
 
-data.add('boo');
-// data.add('boloss');
-// data.add('badass');
+for (var category in json) {
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-// data.add('rebecca');
-// data.add('robots');
-// data.add('rio');
+  try {
+    for (var _iterator = json[category][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var item = _step.value;
+
+      var node = data.add(item);
+      node.category = category;
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator["return"]) {
+        _iterator["return"]();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  draw(true);
+});

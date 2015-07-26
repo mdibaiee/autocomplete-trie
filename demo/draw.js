@@ -12,7 +12,7 @@ svg.append('g').attr('class', 'lines');
 let tree = d3.layout.tree()
   .size([WIDTH - MARGIN, HEIGHT - MARGIN]);
 
-function draw() {
+function draw(small) {
   let nodes = tree.nodes(data.root);
   let links = tree.links(nodes);
 
@@ -33,22 +33,22 @@ function draw() {
 
   nodeElements.attr('transform', d => `translate(${d.x}, ${d.y})`)
     .style('font-family', 'monospace')
-    .style('font-size', '11px')
+    .style('font-size', (small ? '6' : '11') + 'px')
     .attr('data-word', d => d.name);
 
   nodesEnter.append('circle');
 
   let circles = nodeElements.selectAll('circle');
-  circles.attr('r', 25)
+  circles.attr('r', small ? 15 : 25)
     .style('fill', 'rgb(28, 236, 166)')
     .style('stroke', 'rgb(17, 172, 144)')
     .style('fill', 'rgb(28, 236, 166)')
     .style('stroke', 'rgb(17, 172, 144)')
-    .attr('r', 10)
+    .attr('r', small ? 5 : 10)
     .transition()
     .ease(d3.ease('elastic'))
     .duration(700)
-    .attr('r', 25);
+    .attr('r', small ? 15 : 25);
 
 
   nodesEnter.append('text');

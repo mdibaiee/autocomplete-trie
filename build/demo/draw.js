@@ -10,7 +10,7 @@ svg.append('g').attr('class', 'lines');
 
 var tree = d3.layout.tree().size([WIDTH - MARGIN, HEIGHT - MARGIN]);
 
-function draw() {
+function draw(small) {
   var nodes = tree.nodes(data.root);
   var links = tree.links(nodes);
 
@@ -34,14 +34,14 @@ function draw() {
 
   nodeElements.attr('transform', function (d) {
     return 'translate(' + d.x + ', ' + d.y + ')';
-  }).style('font-family', 'monospace').style('font-size', '11px').attr('data-word', function (d) {
+  }).style('font-family', 'monospace').style('font-size', (small ? '6' : '11') + 'px').attr('data-word', function (d) {
     return d.name;
   });
 
   nodesEnter.append('circle');
 
   var circles = nodeElements.selectAll('circle');
-  circles.attr('r', 25).style('fill', 'rgb(28, 236, 166)').style('stroke', 'rgb(17, 172, 144)').style('fill', 'rgb(28, 236, 166)').style('stroke', 'rgb(17, 172, 144)').attr('r', 10).transition().ease(d3.ease('elastic')).duration(700).attr('r', 25);
+  circles.attr('r', small ? 15 : 25).style('fill', 'rgb(28, 236, 166)').style('stroke', 'rgb(17, 172, 144)').style('fill', 'rgb(28, 236, 166)').style('stroke', 'rgb(17, 172, 144)').attr('r', small ? 5 : 10).transition().ease(d3.ease('elastic')).duration(700).attr('r', small ? 15 : 25);
 
   nodesEnter.append('text');
   var texts = svg.selectAll('g.node text').data(nodes);
