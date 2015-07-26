@@ -32,7 +32,7 @@ input.addEventListener('keydown', e => {
   }
 });
 
-input.addEventListener('keyup', () => {
+function keyup() {
   results.innerHTML = '';
 
   const nodes = trie.findWords(input.value);
@@ -44,4 +44,8 @@ input.addEventListener('keyup', () => {
 
     results.innerHTML += `<li>${node.name} ${category}</li>`;
   }
-});
+}
+
+input.addEventListener('keyup', keyup);
+
+keyup();

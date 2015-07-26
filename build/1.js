@@ -39,7 +39,7 @@ for (var category in data) {
 var input = document.querySelector('input');
 var results = document.querySelector('#results');
 
-input.addEventListener('keyup', function () {
+function keyup() {
   results.innerHTML = '';
 
   var nodes = trie.find(input.value);
@@ -72,4 +72,8 @@ input.addEventListener('keyup', function () {
       }
     }
   }
-});
+}
+
+input.addEventListener('keyup', keyup);
+
+keyup();

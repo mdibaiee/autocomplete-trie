@@ -51,7 +51,7 @@ input.addEventListener('keydown', function (e) {
   }
 });
 
-input.addEventListener('keyup', function () {
+function keyup() {
   results.innerHTML = '';
 
   var nodes = trie.findWords(input.value);
@@ -84,4 +84,8 @@ input.addEventListener('keyup', function () {
       }
     }
   }
-});
+}
+
+input.addEventListener('keyup', keyup);
+
+keyup();
