@@ -20,22 +20,24 @@ for (let category in data) {
 const input = document.querySelector('input');
 const results = document.querySelector('#results');
 
-input.addEventListener('keyup', e => {
+input.addEventListener('keydown', e => {
   // Tab Key
   if (e.keyCode === 9) {
     e.preventDefault();
     const current = trie.find(input.value);
 
-    if (!current) return;
+    if (!current.children.length) return;
 
     input.value = current.children[0].name;
   }
+});
 
+input.addEventListener('keyup', () => {
   results.innerHTML = '';
 
   const nodes = trie.findWords(input.value);
 
-  if (!nodes) return;
+  if (!nodes.length) return;
 
   for (let node of nodes) {
     const category = node.category ? `- ${node.category}` : '';

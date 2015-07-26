@@ -75,6 +75,7 @@ var Trie = (function () {
       var parent = arguments.length <= 1 || arguments[1] === undefined ? this.root : arguments[1];
 
       var top = this.find(value, parent);
+      if (!top) return [];
 
       var words = [];
 

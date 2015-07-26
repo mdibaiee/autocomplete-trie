@@ -39,22 +39,24 @@ for (var category in data) {
 var input = document.querySelector('input');
 var results = document.querySelector('#results');
 
-input.addEventListener('keyup', function (e) {
+input.addEventListener('keydown', function (e) {
   // Tab Key
   if (e.keyCode === 9) {
     e.preventDefault();
     var current = trie.find(input.value);
 
-    if (!current) return;
+    if (!current.children.length) return;
 
     input.value = current.children[0].name;
   }
+});
 
+input.addEventListener('keyup', function () {
   results.innerHTML = '';
 
   var nodes = trie.findWords(input.value);
 
-  if (!nodes) return;
+  if (!nodes.length) return;
 
   var _iteratorNormalCompletion2 = true;
   var _didIteratorError2 = false;

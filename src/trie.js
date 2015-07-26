@@ -39,6 +39,7 @@ class Trie {
 
   findWords(value, parent = this.root) {
     let top = this.find(value, parent);
+    if (!top) return [];
 
     let words = [];
 
