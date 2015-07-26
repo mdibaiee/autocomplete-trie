@@ -1,0 +1,58 @@
+div {
+  width: 100px;
+  height: 70px;
+
+  box-sizing: border-box;
+  padding-top: 23px;
+  text-align: center;
+  color: white;
+
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: bold;
+
+  display: inline-block;
+  float: left;
+
+  margin-top: 15px;
+
+  text-shadow: 0 0 1px black;
+}
+
+br {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+.colors {
+  background: #c01025;
+}
+.coffee {
+  background: #c0ffee;
+}
+.codecs {
+  background: #c0d3c5;
+}
+
+.rebecca {
+  background: #663399;
+}
+.robots {
+  background: #208075;
+}
+.rio {
+  background: #210;
+}
+
+.boo {
+  background: #b00;
+}
+.boloss {
+  background: #b01055;
+}
+.badass {
+  background: #bada55;
+}

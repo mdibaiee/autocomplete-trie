@@ -1,0 +1,109 @@
+<head>
+  <title>Trie add demo</title>
+
+  <style>
+    html {
+      font-family: sans-serif;
+    }
+
+    form {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 300px;
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+      background: rgb(106, 250, 211);
+      border: 2px solid rgb(29, 214, 131);
+      border-radius: 4px;
+    }
+
+    label {
+      display: block;
+
+      font-family: sans-serif;
+      font-size: 20px;
+
+      color: rgb(13, 101, 71);
+    }
+
+    input, button {
+      display: block;
+
+      margin: 10px auto;
+
+      width: 80%;
+      border-radius: 2px;
+
+      height: 25px;
+      padding: 5px 10px;
+
+      border: 1px solid rgb(13, 96, 98);
+    }
+
+    button {
+      width: auto;
+    }
+
+    #explain-word {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    #explain-index {
+      position: absolute;
+      left: 50%;
+      top: 30px;
+    }
+
+    #explain-word span {
+      margin: 0 10px;
+    }
+
+    label[for='explain'] {
+      float: left;
+    }
+    #explain {
+      width: 20px;
+      margin: -2px 10px;
+      float: left;
+    }
+
+    .highlight circle {
+      fill: rgb(0, 255, 169) !important;
+    }
+
+    span.highlight {
+      border-bottom: 2px solid currentColor;
+    }
+
+    tspan.highlight {
+      text-decoration: underline;
+      fill: #00AD82;
+    }
+
+  </style>
+</head>
+
+<form>
+  <label for='new'>Add new nodes to the Trie</label>
+  <input id='new'>
+  <button>Add</button>
+
+  <br />
+
+  <div>
+    <input type='checkbox' id='explain' checked='checked'>
+    <label for='explain'>Show parent-finding guides</label>
+  </div>
+</form>
+
+<p id='explain-word'></p>
+<p id='explain-index'></p>
+
+<script src='../build/libs/d3.js'></script>
+<script src='../build/trie.js'></script>
+<script src='../build/demo/data.js'></script>
+<script src='../build/demo/add.js'></script>
