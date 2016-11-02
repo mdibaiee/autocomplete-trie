@@ -56,7 +56,7 @@ function keyup() {
 
       var category = node.category ? "- " + node.category : '';
 
-      results.innerHTML += "<li>" + node.name + " " + category + "</li>";
+      results.innerHTML += "<li>" + node.value + " " + category + "</li>";
     }
   } catch (err) {
     _didIteratorError2 = true;

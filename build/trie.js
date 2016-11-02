@@ -9,7 +9,7 @@ var Node = function Node(value, parent) {
 
   _classCallCheck(this, Node);
 
-  this.name = value;
+  this.value = value;
   this.children = [];
   this.parent = parent;
 };
@@ -29,11 +29,11 @@ var Trie = (function () {
       var _loop = function (i, len) {
         if (!parent.children) parent.children = [];
         var node = parent.children.find(function (child) {
-          return child.name[i] === value[i];
+          return child.value[i] === value[i];
         });
 
         if (!node) {
-          node = new Node(value.slice(0, i + 1), parent.name);
+          node = new Node(value.slice(0, i + 1), parent.value);
           parent.children.push(node);
         }
 
@@ -53,7 +53,7 @@ var Trie = (function () {
 
       var _loop2 = function (i, len) {
         parent = parent.children.find(function (child) {
-          return child.name[i] === value[i];
+          return child.value[i] === value[i];
         });
 
         if (!parent) return {

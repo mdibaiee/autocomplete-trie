@@ -35,7 +35,7 @@ function draw(small) {
   nodeElements.attr('transform', function (d) {
     return 'translate(' + d.x + ', ' + d.y + ')';
   }).style('font-family', 'monospace').style('font-size', (small ? '6' : '11') + 'px').attr('data-word', function (d) {
-    return d.name;
+    return d.value;
   });
 
   nodesEnter.append('circle');
@@ -47,6 +47,6 @@ function draw(small) {
   var texts = svg.selectAll('g.node text').data(nodes);
 
   texts.attr('dy', 5).html(function (d) {
-    return '<tspan>' + d.name.split('').join('</tspan><tspan>') + '</tspan>';
+    return '<tspan>' + d.value.split('').join('</tspan><tspan>') + '</tspan>';
   }).attr('text-anchor', 'middle').style('fill', 'white');
 }

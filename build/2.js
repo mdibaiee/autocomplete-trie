@@ -47,7 +47,7 @@ input.addEventListener('keydown', function (e) {
 
     if (!current.children.length) return;
 
-    input.value = current.children[0].name;
+    input.value = current.children[0].value;
   }
 });
 
@@ -68,7 +68,7 @@ function keyup() {
 
       var category = node.category ? "- " + node.category : '';
 
-      results.innerHTML += "<li>" + node.name + " " + category + "</li>";
+      results.innerHTML += "<li>" + node.value + " " + category + "</li>";
     }
   } catch (err) {
     _didIteratorError2 = true;

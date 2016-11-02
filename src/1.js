@@ -30,7 +30,7 @@ function keyup() {
   for (let node of nodes.children) {
     const category = node.category ? `- ${node.category}` : '';
 
-    results.innerHTML += `<li>${node.name} ${category}</li>`;
+    results.innerHTML += `<li>${node.value} ${category}</li>`;
   }
 }
 

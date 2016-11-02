@@ -1,6 +1,6 @@
 class Node {
   constructor(value = '', parent) {
-    this.name = value;
+    this.value = value;
     this.children = [];
     this.parent = parent;
   }
@@ -14,10 +14,10 @@ class Trie {
   add(value, parent = this.root) {
     for (let i = 0, len = value.length; i < len; i++) {
       if (!parent.children) parent.children = [];
-      let node = parent.children.find(child => child.name[i] === value[i]);
+      let node = parent.children.find(child => child.value[i] === value[i]);
 
       if (!node) {
-        node = new Node(value.slice(0, i + 1), parent.name);
+        node = new Node(value.slice(0, i + 1), parent.value);
         parent.children.push(node);
       }
 
@@ -29,7 +29,7 @@ class Trie {
 
   find(value, parent = this.root) {
     for (let i = 0, len = value.length; i < len; i++) {
-      parent = parent.children.find(child => child.name[i] === value[i]);
+      parent = parent.children.find(child => child.value[i] === value[i]);
 
       if (!parent) return null;
     }
